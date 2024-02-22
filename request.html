@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Mover | Request quote</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- font awsome library-->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- main css file-->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/request.css">
+    <link rel="stylesheet" href="./css/servicesForms.css">
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--scoller-->
+    <div class="scroller"></div>
+    <!-- start header-->
+    <div class="header">
+        <div class="first-head-row">
+            <span class="logo-container">
+                <span class="logo-txt">Quick Mover</span>
+                <img class="logo-img" src="./Group 7.svg" alt="logo image">
+            </span>
+            <ul class="links" id="links">
+                <li class=""><a href="#">
+                    <i class="fa-solid fa-circle-info" style="color: #ff6347;"></i>
+                    Customers
+                </a>
+                </li>
+                <li class=""><a href="#">
+                    <i class="fa-solid fa-circle-info" style="color: #ff6347;"></i>
+                    Partners
+                </a>
+                </li>
+                <li class=""><a href="#">Support</a></li>
+                <li class=""><a href="#">Contact</a></li>
+                
+                <li> <a href="#" class="btn desktop" id="partner">Become a partner</a></li>
+                <li> <a href="login.html" class=" desktop">Login</a></li>    
+            </ul>
+            <span class="burger-icon" id="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>   
+        </div>
+        <div class="second-head-row">
+            <!-- <p>hedoud</p> -->
+            <ul class="links" id="links">
+                <li class=""><a href="moving.html">Moving</a></li>
+                <li class=""><a href="cleaning.html">Cleaning</a></li>
+                <li class=""><a href="moving and cleaning.html">Moving & Cleaning</a></li>
+                <li class=""><a href="Gisper.html">Gisper</a></li>
+                <li class=""><a href="painting.html">Painting</a></li>    
+            </ul>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="sidebar" id="sidebar">
+            <span class="close" id="close">
+                <i class="fa-solid fa-xmark" style="color: #debe3e;"></i>
+            </span>
+            <a href="login.html" class="login-side-btn">login</a>
+            <ul class="links">
+                <li class="first"><a href="about.html">About us</a></li>
+                <li>
+                    <a href="services.html">Services</a>
+                    <ul>
+                        <li><a href="moving.html">Moving</a></li>
+                        <li><a href="cleaning.html">Cleaning</a></li>
+                        <li><a href="moving and cleaning.html">Moving & Cleaning</a></li>
+                        <li><a href="Gisper.html">Gisper</a></li>
+                        <li><a href="painting.html">Painting</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="Help">Help</a>
+                    <ul>
+                        <li> <a href="#">FAQ</a></li>
+                        <li> <a href="#">Become a Parnter</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="request.html" class="report">Book a Service</a>
+            
+        </div>
+    </div>
+    <!-- end header-->
+    <!--start Landing-->
+    <div class="landing">
+        <div class="overlay"></div>
+        <div class="landing-text">
+            <h2 class="main-header">Request a quote</h2>
+            <p>Your Total Solution Provider: Moving, Cleaning, Painting, and More!</p>
+        </div>
+    </div>
+    <!--end Landing-->
+    <div class="form-section " id="form-section">
+        <h3>fill out the form</h3>
+        
+        <div class="container " id="main-form">
+            <!-- start form -->
+            <form  id="first" action="" method="post" class="">
+                <div class="input service">
+                    <h4>choose a type of service</h4>
+                    <select name="service" id="service" >
+                        <option value="none">choose service</option>
+                        <option value="Moving">Moving</option>
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Moving-and-Cleaning">Moving & Cleaning</option>
+                        <option value="Painting">Painting</option>
+                        <option value="Gesper">Gesper</option>
+                    </select>
+                </div>
+                <div class="input zipcode">
+                    <h4>enter you zip code</h4> 
+                    <input   type="number" name="zipcode" id="zipcode" placeholder="Enter you zip code" >
+                </div>
+                <input type="submit" class="submit" id="submit-main" value="continue">
+            </form>
+            <!--end form-->
+            <div class="faq-link">
+                <h5>Questions about the quote?</h5>
+                <a href="#">Check out our FAQ section</a>
+            </div>
+        </div>     
+        <div class="pagination hidden" id="pagination">
+            <div class="personal">
+                <div class="active" id="Personal">1</div>
+                <p>Contact</p>
+            </div>
+            <div class="about">
+                <div id="about" class="">2</div>
+                <p>Details</p>
+            </div>
+            <div class="move-out">
+                <div id="move-out">3</div>
+                <p>Move From</p>
+            </div>
+            <div class="move-in">
+                <div id="move-in">4</div>
+                <p>Move To</p>
+            </div>
+            <span class="progress">
+
+                <span class="progress-activity" id="progress"></span>
+            </span>
+        </div>
+        <div class="container  multiform-first hidden" id="multiform-first">
+            <div class="form">
+                <form action="" class="first-form " id="first-form">
+                    <div class="form-row">
+                        <h4>Salute</h4>
+                        <div class="input">
+                            <input type="text" name="Salute" maxlength="30"  placeholder="Mr/ Mrs" id="surname">
+                            <i class="fa-solid fa-circle-check" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Phone No.</h4>
+                        <div class="input">
+                            <input type="number" name="phone" placeholder="+201002335151" id="phone-num">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Name</h4>
+                        <div class="input">
+                            <input type="text" maxlength="30" name="Name"  placeholder="John" id="name" class="">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Email</h4>
+                        <div class="input">
+                            <input type="email" name="Email"  placeholder="johndoe@outlook.com" id="email">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row switch">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="Inventar">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Would you like to include an inventory list?</span>
+                        </label>
+                    </div>
+                    <div class="form-row submit-and-back">
+                        <span class="back">
+                            <i class="fa-solid fa-arrow-left" id="first-back"></i>
+                        </span>
+                        <input class="submit" id="submit-first" type="submit" value="continue">
+                    </div>
+                </form>
+                <form action="" class="second-form hidden" id="second-form">
+                    <div class="form-row">
+                        <h4>Moving date</h4>
+                        <div class="input">
+                            <input type="date" name="Movingdate" id="date" class="date">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Flexibility</h4>
+                        <div class="input">
+                            <select name="flexible" id="" class="filled">
+                                <option value="one-day">1 Day</option>
+                                <option value="two-days">2 Days</option>
+                                <option value="one-week">1 Week</option>
+                                <option value="two-weeks">2 Weeks</option>
+                                <option value="three-weeks">3 Weeks</option>
+                                <option value="one-month">1 Month</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Available from</h4>
+                        <div class="input">
+                            <select name="Available" id="">
+                                <option value="one-day">1 Day</option>
+                                <option value="two-days">2 Days</option>
+                                <option value="three-days">3 Days</option>
+                                <option value="one-week">1 Week</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Focus</h4>
+                        <div class="input">
+                            <select name="Focus" id="">
+                                <option value="price">Price</option>
+                                <option value="quality">Quality</option>
+                                <option value="both">Both</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>#Boxes for borrow</h4>
+                        <div class="input">
+                            <input type="number" min=0 name="borrow-Box" id="boxes" placeholder="5 boxes">
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>#Boxes for rent</h4>
+                        <div class="input">
+                            <input type="number" name="Rent-Box" min="0" placeholder="3 boxes">
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>#Boxes for sale</h4>
+                        <div class="input">
+                            <input type="number" name="Sale-Box" min="0" placeholder="4 boxes">
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Additional notes</h4>
+                        <div class="input">
+                            <textarea name="Notes" placeholder="Additional Notes"></textarea>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row switch">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="viewing">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Viewing desired?</span>
+                        </label>
+                    </div>
+                    <div class="form-row submit-and-back">
+                        <span class="back ">
+                            <i class="fa-solid fa-arrow-left" id="second-back"></i>
+                        </span>
+                        <input class="submit" id="submit-second" type="submit" value="continue">
+                    </div>
+                </form>
+                <form action="" class="third-form hidden" id="third-form">
+                    <div class="form-row">
+                        <h4>Street</h4>
+                        <div class="input">
+                            <input name="FStreet" type="text" maxlength="50"  placeholder="address" id="moving-from-addr" class="filled">
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Post box</h4>
+                        <div class="input">
+                            <input name="FPostBox" type="number" maxlength="20"  placeholder="PostBox" id="zipcode-moving-from" class="filled">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>City</h4>
+                        <div class="input">
+                            <input name="FCity" placeholder="City" type="text">
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Object</h4>
+                        <div class="input">
+                            <select name="FObject" id="" class="filled">
+                                <option value="apartment">Apartment</option>
+                                <option value="efh">EFH</option>
+                                <option value="office-rooms">Office Rooms</option>
+                                <option value="business">Business</option>
+                                <option value="gastronomy">Gastronomy</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="hotel-industry">Hotel Industry</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                            
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Rooms</h4>
+                        <div class="input">
+                            <select name="FRooms" id="" class="filled">
+                                <option value="1">1</option>
+                                <option value="1.5">1.5</option>
+                                <option value="2">2</option>
+                                <option value="2.5">2.5</option>
+                                <option value="3">3</option>
+                                <option value="3.5">3.5</option>
+                                <option value="4">4</option>
+                                <option value="4.5">4.5</option>
+                                <option value="5">5</option>
+                                <option value="5.5">5.5</option>
+                                <option value="6">6</option>
+                                <option value="6.5">6.5</option>
+                                <option value="7">7</option>
+                                <option value="7.5">7.5</option>
+                                <option value="more">More..</option>
+                            </select>
+
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Floor</h4>
+                        <div class="input">
+                            <select name="FFloor" id="">
+                                <option value="floor-one">1. Floor</option>
+                                <option value="floor-two">2. Floor</option>
+                                <option value="floor-three">3. Floor</option>
+                                <option value="floor-four">4. Floor</option>
+                                <option value="floor-five">5. Floor</option>
+                                <option value="floor-six">6. Floor</option>
+                                <option value="floor-seven">7. Floor</option>
+                                <option value="floor-eight">8. Floor</option>
+                                <option value="floor-nine">9. Floor</option>
+                                <option value="floor-ten">10. Floor</option>
+                                <option value="more">More..</option>
+                            </select>
+
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Area</h4>
+                        <div class="input">
+                            <select name="FArea" id="">
+                                <option value="00-to-50">00 - 50</option>
+                                <option value="51-to-100">51 - 100</option>
+                                <option value="101-to-150">101 - 150</option>
+                                <option value="151-to-200">151 - 200</option>
+                                <option value="200-plus">200+</option>
+                            </select>
+
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Distance</h4>
+                        <div class="input">
+                            <select name="FDistance" id="">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="50">50</option>
+                                <option value="50-plus">50+</option>
+                            </select>
+
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row switch">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="FLift">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Lift</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="FGarage">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Garage</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="FCellar">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Cellar</span>
+                        </label>
+                    </div>
+                    <div class="form-row switch">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="FDismantFurnit">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Dismantle Furniture</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="FDismantLamp">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Dismantle Lamps</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="FWrapUp">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Wrap Up</span>
+                        </label>
+
+                        
+                    </div>
+                    <div class="form-row switch">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="FStorage">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Storage</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="FDisposal">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            
+                            <span style="margin-left: 8px;font-size: 14px;">Disposal</span>
+                        </label>
+                    </div>
+                    <div class="form-row submit-and-back" id="submit-and-back">
+                        <span class="back ">
+                            <i class="fa-solid fa-arrow-left" id="third-back"></i>
+                        </span>
+                        <input class="submit" id="submit-third" type="submit" value="continue">
+                    </div>
+                    
+                </form>
+                <form action="" class="fourth-form hidden" id="fourth-form">
+                    <div class="form-row">
+                        <h4>Street</h4>
+                        <div class="input">
+                            <input name="TStreet" type="text" maxlength="50"  placeholder="address" id="moving-from-addr" class="filled">
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Post box</h4>
+                        <div class="input">
+                            <input name="TPostBox" type="number" maxlength="20"  placeholder="PostBox" id="zipcode-moving-from" class="notvalid">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>City</h4>
+                        <div class="input">
+                            <input name="TCity" placeholder="City" type="text">
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Object</h4>
+                        <div class="input">
+                            <select name="TObject" id="">
+                                <option value="apartment">Apartment</option>
+                                <option value="efh">EFH</option>
+                                <option value="office-rooms">Office Rooms</option>
+                                <option value="business">Business</option>
+                                <option value="gastronomy">Gastronomy</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="hotel-industry">Hotel Industry</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Floor</h4>
+                        <div class="input">
+                            <select name="TFloor" id="">
+                                <option value="floor-one">1. Floor</option>
+                                <option value="floor-two">2. Floor</option>
+                                <option value="floor-three">3. Floor</option>
+                                <option value="floor-four">4. Floor</option>
+                                <option value="floor-five">5. Floor</option>
+                                <option value="floor-six">6. Floor</option>
+                                <option value="floor-seven">7. Floor</option>
+                                <option value="floor-eight">8. Floor</option>
+                                <option value="floor-nine">9. Floor</option>
+                                <option value="floor-ten">10. Floor</option>
+                                <option value="more">More..</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="TLift">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Lift</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <h4>Distance</h4>
+                        <div class="input">
+                            <select name="TDistance" id="">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="50">50</option>
+                                <option value="50-plus">50+</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="TAuspacken">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Unpacking</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="TMountMobel">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Assemble Furniture</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input" name="TMountLamp">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;font-size: 14px;">Assemble Lamps</span>
+                        </label>
+                    </div>
+                    <div class="form-row submit-and-back">
+                        <span class="back " id="fourth-back">
+                            <i class="fa-solid fa-arrow-left" ></i>
+                        </span>
+                        <input class="submit " id="submit-fourth" type="submit" value="continue">
+                    </div>
+                </form>
+            </div>
+            
+            <!-- <div class="faq-link">
+                <h5>Questions about the quote?</h5>
+                <a href="#">Check out our FAQ section</a>
+            </div> -->
+        </div>
+    </div>
+    <!--start completion-->
+    <div class="completion hidden" id="completion-div">
+        <div class="container hidden" >
+            <h3>Thank you!</h3>
+            <p>You have successfully submitted your request for a quote. We appreciate your interest in our moving services and we will get back to you as soon as possible with your personalized quote.</p>
+            <p>In the meantime, you can check out our PAGE FOR some useful tips and advice on how to prepare for your move. You can also follow us on social media to stay updated on our latest news and offers.</p>
+            <a href="index.html">Frequently Asked Questions</a>
+            <p>Thank you for choosing Moving Company. We look forward to serving you soon!</p>
+        </div>
+    </div>
+    <!--end completion-->
+    <!--start footer-->
+    <div class="footer">
+        <div class="logo">
+            <span class="logo-container">
+                <span class="logo-txt">Quick Mover</span>
+                <img class="logo-img" src="./Group 7.svg" alt="logo image">
+            </span>
+            <div class="description">
+                <p>
+                    where innovation meets service excellence. As industry intermediaries, we take pride in connecting clients to a carefully curated network of top-tier service providers in cleaning, moving, painting, and GIS services. Our mission is to simplify your experience by providing a single point of contact for a diverse range of needs. Backed by a commitment to quality and customer satisfaction, we redefine convenience and elevate expectations.
+                </p>
+            </div>
+        </div>
+        <div class="links">
+            <div class="box services">
+                <a href="services.html">Services</a>
+                <ul>
+                    <li><a href="moving.html">Moving</a></li>
+                    <li><a href="cleaning.html">Cleaning</a></li>
+                    <li><a href="moving and cleaning.html">Moving & Cleaning</a></li>
+                    <li><a href="Gisper.html">Gisper</a></li>
+                    <li><a href="painting.html">Painting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="form">
+            <form action="">
+                <div class="inputs" id="inputs">
+                    <div class="input">
+                        <h4>name</h4>
+                        <input type="text" placeholder="enter name" name="name">
+                    </div>
+                    <div class="input">
+                        <h4>email</h4>
+                        <input type="email" name="email" id="email" placeholder="enter email">
+                    </div>
+                    <div class="input">
+                        <h4>subject</h4>
+                        <input type="text" name="subject" id="subject">
+                    </div>
+                    <div class="input">
+                        <h4>Messege</h4>
+                        <textarea name="messege" id="messege" placeholder="enter messege"></textarea>
+                    </div>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="submit" class="submit-btn">
+                </div>
+            </form>
+            <ul class="footer-links">
+                <li><a href="#">contact</a></li>
+                <li><a href="#">become a partner</a></li>
+                <li><a href="#">register</a></li>
+                <li><a href="#">disclaimer</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- start development by section-->
+    <!-- <div class="dev-by">
+        <span>Development by <span>Mohammed Elshenawy</span></span>
+        <a href="tel:+201558087877">Call now</a>
+    </div> -->
+    <!-- end development by section-->
+    <div class="rights">
+        &copy; 2023, Lightsoft, All rights reserved
+    </div>
+    <script src="./main.js"></script>
+    <script src="./reqeust.js" defer></script>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            border: 2px solid yellow;
+            border-radius: 4px;
+        }
+
+        .box {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            overflow-y: auto;
+            border-radius: 4px;
+            padding:10px;
+            background-color: #3A3B4A;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #box1{
+            color: white;
+        }
+        #box2 {
+            background-color: #DEBE3E;
+            color:#f5f5f5 ;
+        }
+        .items-list {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item {
+            padding: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin:5px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #DEBE3E;
+            border-radius: 4px;
+        }
+        
+        .item:hover {
+            background-color: #BD9E22;
+        }
+
+        .select-button {
+            background-color: #01020F;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: bold;
+            transition: all 0.5s ease;
+
+        }
+        .selected-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            margin: 5px;
+            border-radius: 4px;
+            background-color: #01020F;
+            font-size: 12px;
+            animation: itemSelectAnimation 0.5s ease;
+        }
+
+        @keyframes itemSelectAnimation {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .delete-button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: bold;
+            transition: all 0.5s ease;
+        }
+        .delete-button:hover {
+            background-color: tomato;
+        }
+    </style>
+    <title>Item Selection with Vanilla JS</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1">
+            <h2>select</h2>
+            <ul class="items-list" id="itemsList">
+                <li class="item" draggable="true">
+                    Item 1
+                    <button class="select-button">Select</button>
+                </li>
+                <li class="item" draggable="true">
+                    Item 2
+                    <button class="select-button">Select</button>
+                </li>
+                <li class="item" draggable="true">
+                    Item 3
+                    <button class="select-button">Select</button>
+                </li>
+                <!-- Add more items as needed -->
+            </ul>
+        </div>
+        <div class="box" id="box2">
+            <h2>Selected</h2>
+            <ul class="items-list selected-items" id="selectedItemsList"></ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const items = document.querySelectorAll('#itemsList .item');
+            const selectedItemsList = document.getElementById('selectedItemsList');
+            const box2 = document.getElementById('box2');
+
+            items.forEach(item => {
+                item.addEventListener('dragstart', function (event) {
+                    event.dataTransfer.setData('text/plain', event.target.innerText.trim());
+                });
+            });
+
+            items.forEach(item => {
+                const selectButton = item.querySelector('.select-button');
+                selectButton.addEventListener('click', function () {
+                    const selectedItemText = item.innerText.trim();
+                    const selectedDiv = document.createElement('div');
+                    selectedDiv.classList.add('selected-item');
+                    selectedDiv.innerHTML = `<span>${selectedItemText}</span>`;
+                    
+                    const deleteButton = document.createElement('button');
+                    deleteButton.innerText = 'Delete';
+                    deleteButton.classList.add('delete-button');
+                    deleteButton.addEventListener('click', function () {
+                        selectedDiv.remove();
+                    });
+
+                    selectedDiv.appendChild(deleteButton);
+                    selectedItemsList.appendChild(selectedDiv);
+                });
+            });
+
+            box2.addEventListener('dragover', function (event) {
+                event.preventDefault();
+            });
+
+            box2.addEventListener('drop', function (event) {
+                event.preventDefault();
+                const selectedItemText = event.dataTransfer.getData('text/plain');
+                const selectedDiv = document.createElement('div');
+                selectedDiv.classList.add('selected-item');
+                selectedDiv.innerHTML = `<span>${selectedItemText}</span>`;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.innerText = 'Delete';
+                deleteButton.classList.add('delete-button');
+                deleteButton.addEventListener('click', function () {
+                    selectedDiv.remove();
+                });
+
+                selectedDiv.appendChild(deleteButton);
+                selectedItemsList.appendChild(selectedDiv);
+            });
+        });
+    </script>
+</body>
+</html>

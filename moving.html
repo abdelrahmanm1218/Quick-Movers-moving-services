@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Mover | Moving Request</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- font awsome library-->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- main css file-->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/request.css">
+    <link rel="stylesheet" href="./css/servicesForms.css">
+    <link rel="stylesheet" href="./css/moving.css">
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar{
+            width:10px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #01020F;
+            border-radius: 100vw;
+            margin-block:0.5em;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #DEBE3E;
+            border-radius: 100vw;
+        }
+        * {
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+.contain {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            border-radius: 4px;
+            background-color: black;
+            padding:20px;
+            position: relative;
+        }
+
+        .contain .box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            overflow-y: auto;
+            border-radius: 4px;
+            padding:10px;
+            background-color: #3A3B4A;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #box1{
+            color: white;
+            position: relative;
+        }
+        #box1 .big-item {
+            width:100%;
+            position: relative;
+            margin: 10px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+        }
+        #box1 .big-item.active .category {
+            background-color: #DEBE3E ;
+            color: black;
+        }
+        #box1 .category {
+            background-color: black;
+            color: white;
+            width:100%;
+            padding:5px;
+            color: white;
+            cursor: pointer;
+            
+        }
+        #box1 .category h3{
+            position: relative;
+            font-size: 18px;
+            padding:10px;
+            transition: all 0.5s ease;
+        }
+        #box1 .category h3.active {
+            background-color: #DEBE3E;
+            color: black;
+        }
+        #box1 .category h3::before {
+            content:"+";
+            font-size: 27px;
+            font-weight: bold;
+            position: absolute;
+            right:20px;
+            top:50%;
+            transform: translateY(-50%);
+        }
+        #box1 .big-item.active .category h3::before {
+            content: "-";
+        }
+        #box1 .content {
+            background-color: #DEBE3E;
+            padding:0px;
+            height:0;
+            overflow-y: hidden ;
+            transition: 0.5s ;
+            position: relative;
+        }
+        #box1 .big-item.active .content {
+            height:initial;
+            overflow-y: auto;
+            transition: all 0.5s ease ;
+        }
+        #box1 .content ul {
+            transition: 0.5s;
+        }
+        #box1 .content ul li {
+            display:flex;
+            align-items: center;
+            background-color: black;
+        }
+        #box1 .content ul li img {
+            width:60px;
+            height:60px;
+        }
+        #box1 .content ul li span {
+            /* background-color: red; */
+            color: white;
+            font-size: 14px;
+            height: fit-content;
+            padding:5px;
+            width:40%;
+        }
+        #box1 .content ul li button {
+            width:fit-content;
+            height:30px;
+            padding: 5px 10px;
+            font-size: 13px;
+            color: black;
+            background-color: #DEBE3E;
+            border: none;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+        }
+        #box1 .content ul li button:hover {
+            cursor: pointer;
+            background-color: #BD9E22;
+        }
+        #box2 {
+            background-color: #eee;
+            color:black ;
+        }
+        .items-list {
+            list-style: none;
+            padding: 0;
+            /* background-color: ; */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item {
+            padding: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin:5px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #DEBE3E;
+            border-radius: 4px;
+        }
+        
+        .item:hover {
+            background-color: #BD9E22;
+        }
+
+        /* .select-button {
+            background-color: #01020F;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: bold;
+            transition: all 0.5s ease;
+
+        } */
+        .selected-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            margin: 5px;
+            border-radius: 4px;
+            background-color: #01020F;
+            font-size: 12px;
+            color: white;
+        }
+
+        .delete-button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: bold;
+            transition: all 0.5s ease;
+        }
+        .delete-button:hover {
+            background-color: tomato;
+        }
+        .selected-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            margin: 5px;
+            border-radius: 4px;
+            background-color: #01020F;
+            font-size: 12px;
+            animation: itemSelectAnimation 0.5s ease;
+        }
+        .contain #btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #DEBE3E;
+            color: #01020F;
+            font-weight: bold;
+            font-size: 15px;
+            text-transform: capitalize;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            position: absolute;
+            right:50px;
+            bottom: 30px;
+            cursor: pointer;
+        }
+        @keyframes itemSelectAnimation {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--scoller-->
+    <div class="scroller"></div>
+    <!-- start header-->
+    <div class="header">
+        <div class="first-head-row">
+            <span class="logo-container">
+                <span class="logo-txt">Quick Mover</span>
+                <img class="logo-img" src="./Group 7.svg" alt="logo image">
+            </span>
+            <ul class="links" id="links">
+                <li class=""><a href="#">
+                    <i class="fa-solid fa-circle-info" style="color: #ff6347;"></i>
+                    Customers
+                </a>
+                </li>
+                <li class=""><a href="#">
+                    <i class="fa-solid fa-circle-info" style="color: #ff6347;"></i>
+                    Partners
+                </a>
+                </li>
+                <li class=""><a href="#">Support</a></li>
+                <li class=""><a href="#">Contact</a></li>
+                
+                <li> <a href="#" class="btn desktop" id="partner">Become a partner</a></li>
+                <li> <a href="login.html" class=" desktop">Login</a></li>    
+            </ul>
+            <span class="burger-icon" id="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>   
+        </div>
+        <div class="second-head-row">
+            <!-- <p>hedoud</p> -->
+            <ul class="links" id="links">
+                <li class=""><a href="moving.html">Moving</a></li>
+                <li class=""><a href="cleaning.html">Cleaning</a></li>
+                <li class=""><a href="moving and cleaning.html">Moving & Cleaning</a></li>
+                <li class=""><a href="Gisper.html">Gisper</a></li>
+                <li class=""><a href="painting.html">Painting</a></li>    
+            </ul>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="sidebar" id="sidebar">
+            <span class="close" id="close">
+                <i class="fa-solid fa-xmark" style="color: #debe3e;"></i>
+            </span>
+            <a href="login.html" class="login-side-btn">login</a>
+            <ul class="links">
+                <li class="first"><a href="about.html">About us</a></li>
+                <li>
+                    <a href="services.html">Services</a>
+                    <ul>
+                        <li><a href="moving.html">Moving</a></li>
+                        <li><a href="cleaning.html">Cleaning</a></li>
+                        <li><a href="moving and cleaning.html">Moving & Cleaning</a></li>
+                        <li><a href="Gisper.html">Gisper</a></li>
+                        <li><a href="painting.html">Painting</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="Help">Help</a>
+                    <ul>
+                        <li> <a href="#">FAQ</a></li>
+                        <li> <a href="#">Become a Parnter</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="request.html" class="report">Book a Service</a>
+            
+        </div>
+    </div>
+    <!-- end header-->
+    <!--start Landing-->
+    <div class="landing">
+        <div class="overlay"></div>
+        <div class="landing-text">
+            <h2 class="main-header">Request a Moving</h2>
+            <p>Seamless Transitions, Reliability in Every Move.</p>
+        </div>
+    </div>
+    <!--end Landing-->
+    <div class="form-section">
+        <h3>fill out the form</h3>
+        <div class="pagination" id="pagination">
+            <div >
+                <div id="contact" class="active">1</div>
+                <p>Contact</p>
+            </div>
+            <div>
+                <div id="moving-from">2</div>
+                <p>moving from</p>
+            </div>
+            <div >
+                <div id="moving-to" class="">3</div>
+                <p>moving to</p>
+            </div>
+            
+            <span class="progress">
+                <span class="progress-activity" id="progress"></span>
+            </span>
+        </div>
+        <div class="container multiform-first" id="multiform-first">
+            <div class="form">
+                <form action="" class="first-form " id="first-form">
+                    <div class="form-row">
+                        <h4>Salute</h4>
+                        <div class="input">
+                            <select class="filled">
+                                <option value="Mr">Mr.</option>
+                                <option value="Miss">Miss</option>
+                                <option value="Mrs">Mrs</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Name</h4>
+                        <div class="input">
+                            <input type="text" class="filled"  placeholder="Enter Name" id="name">
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Your Email</h4>
+                        <div class="input">
+                            <input type="email"  placeholder="johndoe@outlook.com" id="email">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Phone</h4>
+                        <div class="input">
+                            <input type="email"  placeholder="+20010010101" id="phone">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-row submit-and-back">
+                        <span class="back disabled">
+                            <i class="fa-solid fa-arrow-left " id="first-back"></i>
+                        </span>
+                        <input class="submit" id="submit-first" type="submit" value="continue">
+                    </div>
+                </form>
+                <form action="" class="second-form hidden" id="second-form">
+                    <div class="form-row">
+                        <h4>Working date</h4>
+                        <div class="input">
+                            <input type="date"    id="date" class="">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Street</h4>
+                        <div class="input">
+                            <input type="text"  placeholder="john doe st." id="street">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Order Nr</h4>
+                        <div class="input">
+                            <input type="text"  placeholder="" id="street">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>City</h4>
+                        <div class="input">
+                            <input type="text"  placeholder="Zurich" id="city">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>PostBox</h4>
+                        <div class="input">
+                            <input type="text"  placeholder="" id="postbox">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Area</h4>
+                        <div class="input">
+                            <input type="number"  placeholder="100" id="area">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Floor</h4>
+                        <div class="input">
+                            <input type="number"  placeholder="2" id="floor">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Notes</h4>
+                        <div class="input">
+                            <textarea name="notes" id="notes" maxlength="300"  placeholder="Enter Additional information, max length is 300 words"></textarea>
+                        <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>order type</h4>
+                        <div class="input">
+                            <select class="filled">
+                                <option value="moving">Moving</option>
+                                <option value="lorem">lorem</option>
+                                <option value="ipsum">ipsum</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-row">
+                        <h4>Object</h4>
+                        <div class="input">
+                            <select class="filled">
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="ipsum">ipsum</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row submit-and-back">
+                        <span class="back">
+                            <i class="fa-solid fa-arrow-left " id="second-back"></i>
+                        </span>
+                        <input class="submit" id="submit-second" type="submit" value="continue">
+                    </div>
+                </form>
+                <form action="" class="third-form hidden" id="third-form">
+                    <div class="form-row">
+                        <h4>room</h4>
+                        <div class="input">
+                            <input type="number"  placeholder="201" id="room">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Preis</h4>
+                        <div class="input">
+                            <input type="number"  placeholder="0.00" id="preis">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Tstreet</h4>
+                        <div class="input">
+                            <input type="text"  placeholder="john st." id="tstreet">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>TPostBox</h4>
+                        <div class="input">
+                            <input type="text"  placeholder="" id="tpostbox">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>TCity</h4>
+                        <div class="input">
+                            <input type="text"  placeholder="Zurich" id="Tcity">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>TObject</h4>
+                        <div class="input">
+                            <select class="filled">
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="ipsum">ipsum</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>TFloor</h4>
+                        <div class="input">
+                            <input type="number"  placeholder="2" id="tfloor">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>TDistance</h4>
+                        <div class="input">
+                            <input type="number"  placeholder="2" id="tdistance">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Kartons</h4>
+                        <div class="input">
+                            <input type="number"  placeholder="4" id="Kartons">
+                            <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">Flift</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">FDismantFurnit</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">FWrapUp</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">FDismantLamp</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">FDisposal</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">FStorage</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">TLift</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">TMountMobel</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">TAuspacken</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">TMontLamp</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">Inventar</span>
+                        </label>
+                    </div>
+                    <div class="form-row submit-and-back">
+                        <span class="back">
+                            <i class="fa-solid fa-arrow-left " id="third-back"></i>
+                        </span>
+                        <input class="submit" id="submit-third" type="submit" value="continue">
+                    </div>
+                </form>
+            <!--end form-->
+            </div>
+            
+        </div>
+        <!-- start inventory-->
+        <div class="contain hidden" id="contain">
+            <div class="box" id="box1">
+                <h2>select</h2>
+                <div class="big-item ">
+                    <div class="category">
+                        <h3 class="">Cartons</h3>
+                        
+                        <div class="content">
+                            <ul class="items-list" id="itemsList">
+                                <li class="item" draggable="true">
+                                    <img src="./images/Cartons/Moving.png">
+                                    <span>moving boxes</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Cartons/Book.png">
+                                    <span>book boxes</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Cartons/Clothes.png">
+                                    <span>clothes boxes</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <!-- Add more items as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="big-item ">
+                    <div class="category">
+                        <h3 class="">Workspace</h3>
+                        <div class="content">
+                            <ul class="items-list" id="itemsList">
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/File Cabinet.png">
+                                    <span>file cabinet</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/Bookshelf.png">
+                                    <span>bookshelf</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/ceiling lamp.png">
+                                    <span>ceiling lamp</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/Computer.png">
+                                    <span>computer</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/Desk.png">
+                                    <span>desk</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/desk chair.png">
+                                    <span>desk chair</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/Armchair without armrests.png">
+                                    <span>armchair without armrests</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/Armchair with armrests.png">
+                                    <span>armchair with armrests</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/floor lamp.png">
+                                    <span>floor lamp</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/Carpet.png">
+                                    <span>carpet</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/Table up to 0_6 m.png">
+                                    <span>table up to 0.6m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/Table over 1_2 m.png">
+                                    <span>table up to 1.2m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/Sideboard.png">
+                                    <span>sideboard</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/Printer.png">
+                                    <span>printer</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Workspace/Plant.png">
+                                    <span>printer</span>
+                                    <button class="select-button">plant</button>
+                                </li>
+                                <!-- Add more items as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="big-item ">
+                    <div class="category">
+                        <h3 class="">Bedroom</h3>
+                        
+                        <div class="content">
+                            <ul class="items-list" id="itemsList">
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/double bed.png">
+                                    <span>double bed</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Bedding.png">
+                                    <span>bedding</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Ceiling lamp.png">
+                                    <span>ceiling lamp</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Single bed.png">
+                                    <span>single bed</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/French bed.png">
+                                    <span>french bed</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/TV.png">
+                                    <span>TV</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Dresser without mirror.png">
+                                    <span>dresser without mirror</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Dresser with mirror.png">
+                                    <span>dresser with mirror</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Bedside table.png">
+                                    <span>bedside table</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Cupboard, up to 2 doors, cannot be dismantled.png">
+                                    <span>Cupboard, up to 2 doors, cannot be dismantled</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Wardrobe, dismountable.png">
+                                    <span>wardrobe can be dismantled</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Wardrobe sliding doors.png">
+                                    <span>Wardrobe sliding doors</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Cabinet with sliding doors-drawers.png">
+                                    <span>Wardrobe with sliding doors-drawers</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Mirror, over 0.8 m.png">
+                                    <span>mirror, over 0.8m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/chair.png">
+                                    <span>chair, stool</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/laundry chest.png">
+                                    <span>laundry chest</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Carpet.png">
+                                    <span>carpet</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Bedroom/Plant.png">
+                                    <span>Plant</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <!-- Add more items as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="big-item ">
+                    <div class="category">
+                        <h3 class="">Dining room</h3>
+                        
+                        <div class="content">
+                            <ul class="items-list" id="itemsList">
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Buffet (without attachment).png">
+                                    <span>Buffet (without attachment)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Ceiling lamp.png">
+                                    <span>Ceiling lamp</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Corner bench (per seat).png">
+                                    <span>corner bench</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Bar.png">
+                                    <span>bae</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Sideboard.png">
+                                    <span>sideboard</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Chair without armrests.png">
+                                    <span>Chair without armrests</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Chair with armrests.png">
+                                    <span>Chair with armrests</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Carpet.png">
+                                    <span>Carpet</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Table up to 1_2 m.png">
+                                    <span>table up to 1.2m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Table over 1_2 m.png">
+                                    <span>table over 1.2m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Showcase (glass cabine).png">
+                                    <span>showcase</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Dining room/Plant.png">
+                                    <span>Plant</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                
+                                <!-- Add more items as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="big-item ">
+                    <div class="category">
+                        <h3 class="">Living room</h3>
+                        
+                        <div class="content">
+                            <ul class="items-list" id="itemsList">
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Extension wall (per meter).png">
+                                    <span>extension wall (per meter)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Pictures.png">
+                                    <span>pictures</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Buffet, with attachment.png">
+                                    <span>Buffet, with attachment</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Bookshelf, can be dismantled.png">
+                                    <span>Bookshelf (can be dismantled, per meter)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Ceiling lamp.png">
+                                    <span>ceiling lamp</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/TV cabinet.png">
+                                    <span>TV cabinet</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Wing.png">
+                                    <span>wing</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Home organ.png">
+                                    <span>Home organ</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Piano.png">
+                                    <span>piano</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Chandelier.png">
+                                    <span>Chandelier</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Sewing machine (closet).png">
+                                    <span>Sewing machine (closet)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Plant.png">
+                                    <span>Plant</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Table up to 1_6 m.png">
+                                    <span>Desk up to 1.6m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Table over 1_6 m.png">
+                                    <span>Desk over 1.6m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Armchair without armrests.png">
+                                    <span>armchair without armrests</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Armchair with armrests.png">
+                                    <span>armchair with armrests</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Sideboard.png">
+                                    <span>sideboard</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Seating landscape (per seat).png">
+                                    <span>Seating landscape (per seat)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Sofa, couch, lounger (per seat).png">
+                                    <span>Sofa, couch, lounger (per seat)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Grandfather clock.png">
+                                    <span>Grandfather clock</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Floor lamp.png">
+                                    <span>Floor lamp</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Stereo system.png">
+                                    <span>Stereo system</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Carpet.png">
+                                    <span>Carpet</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/TV.png">
+                                    <span>TV</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Living room/Couchtisch.png">
+                                    <span>couch table</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <!-- Add more items as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="big-item ">
+                    <div class="category">
+                        <h3 class="">Nursery</h3>
+                        
+                        <div class="content">
+                            <ul class="items-list" id="itemsList">
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Extension wall.png">
+                                    <span>Extension wall (per meter)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Bed complete.png">
+                                    <span>Bed complete</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Bedding.png">
+                                    <span>bedding</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Ceiling lamp.png">
+                                    <span>Ceiling lamp</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Bunk bed, complete.png">
+                                    <span>Bunk bed, complete</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Cot, complete.png">
+                                    <span>Cot, complete</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Playpen.png">
+                                    <span>Playpen</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Bedside table.png">
+                                    <span>Bedside table</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Non-dismountable wardrobe.png">
+                                    <span>Non-dismountable wardrobe up yo 2 doors</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Dismountable cabinet.png">
+                                    <span>Dismountable cabinet (per meter)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Desk.png">
+                                    <span>desk</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Toy box.png">
+                                    <span>Toy box</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Chair.png">
+                                    <span>chair/ stool</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Table up to 1 m.png">
+                                    <span>table up to 1.0m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Table over 1 m.png.png">
+                                    <span>table over 1.0m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Nursery/Plant.png">
+                                    <span>plant</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <!-- Add more items as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="big-item ">
+                    <div class="category">
+                        <h3 class="">Kitchen</h3>
+                        
+                        <div class="content">
+                            <ul class="items-list" id="itemsList">
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Broom cupboard.png">
+                                    <span>Broom cupboard</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Buffet with essays.png">
+                                    <span>Buffet with essays</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Ironing board.png">
+                                    <span>Ironing board</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Ceiling lamp.png">
+                                    <span>Ceiling lamp</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Corner bench.png">
+                                    <span>Corner bench (per seat)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Dishwasher.png">
+                                    <span>Dishwasher</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Fridge - chest up to 120 liters.png">
+                                    <span>Fridge / chest up to 120 liters</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Fridge - chest.png">
+                                    <span>Fridge / chest over 120 liters</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Microwave.png">
+                                    <span>Microwave</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Collapsible shelf.png">
+                                    <span>Collapsible shelf (per meter)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Chair.png">
+                                    <span>Chair</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Table up to 0-6 m.png">
+                                    <span>Table up to 0.6m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Table up to 1-2 m.png">
+                                    <span>Table up to 1.2m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Table over 1-2m.png">
+                                    <span>Table over 1.2m</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Washer.png">
+                                    <span>Washer / dryer</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Kitchen/Vacuum cleaner.png">
+                                    <span>Vacuum cleaner</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <!-- Add more items as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="big-item ">
+                    <div class="category">
+                        <h3 class="">Corridoio/ Bagno</h3>
+                        
+                        <div class="content">
+                            <ul class="items-list" id="itemsList">
+                                <li class="item" draggable="true">
+                                    <img src="./images/Corridoio-bagno/0.png">
+                                    <span>ceiling lamp</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Corridoio-bagno/Garderobe.png">
+                                    <span>Wardrobe / hat & coat rack</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Corridoio-bagno/Kommode.png">
+                                    <span>Dresser/chest</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Corridoio-bagno/Schuhschrank.png">
+                                    <span>Shoe cabinet</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Corridoio-bagno/Stuhl.png">
+                                    <span>chair, stool</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Corridoio-bagno/Toilettenschrank.png">
+                                    <span>Toilet cabinet</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Corridoio-bagno/Wäscheschrank.png">
+                                    <span>linen closet</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <!-- Add more items as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="big-item ">
+                    <div class="category">
+                        <h3 class="">Garage/ Garden/ Balcony</h3>
+                        
+                        <div class="content">
+                            <ul class="items-list" id="itemsList">
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Autoreifen.png">
+                                    <span>car tire</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Flowerpot.png">
+                                    <span>flowerpot/ box</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Kinderrad.png">
+                                    <span>Tricycle</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Fahrrad.png">
+                                    <span>bike</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Klapptisch.png">
+                                    <span>folding table</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Klappstuhl.png">
+                                    <span>folding chair</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Leiter.png">
+                                    <span>ladder (per ang. meter)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Mülltonne.png">
+                                    <span>dustbin</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Rasenmäher.png">
+                                    <span>Motorized lawn mower</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/zerlegbarer Schrank.png">
+                                    <span>collapsible cabinet (per ang. meter)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Schubkarre.png">
+                                    <span>wheelbarrow</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Sonnenschirm.png">
+                                    <span>parasol</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Tischtennisplatte.png">
+                                    <span>tennis table</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Grill.png">
+                                    <span>CAMPINGAZ gas grill</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Grill.png">
+                                    <span>charcoal grill</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Outdoorsofa.png">
+                                    <span>outdoor sofa</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Gartenmöbel.png">
+                                    <span>graden furniture</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Vogelnest.png">
+                                    <span>bird nest</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Garage-garden-balcony/Trampolin.png">
+                                    <span>Trampoline</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <!-- Add more items as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="big-item ">
+                    <div class="category">
+                        <h3 class="">Basement / storage</h3>
+                        
+                        <div class="content">
+                            <ul class="items-list" id="itemsList">
+                                <li class="item" draggable="true">
+                                    <img src="./images/Basement-storage/KInderwagen.png">
+                                    <span>stroller</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Basement-storage/Koffer.png">
+                                    <span>suitcase</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Basement-storage/zerlegbarer Regal.png">
+                                    <span>dismountable shelf (per ang. meter)</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Basement-storage/Schlitten.png">
+                                    <span>sleds</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Basement-storage/Ski.png">
+                                    <span>ski</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Basement-storage/Werkbank, zerlegbar.png">
+                                    <span>workbench, dismountable</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Basement-storage/Werkzeugschrank.png">
+                                    <span>tool cabinet</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <li class="item" draggable="true">
+                                    <img src="./images/Basement-storage/Werkzeugkoffer.png">
+                                    <span>tool case</span>
+                                    <button class="select-button">Select</button>
+                                </li>
+                                <!-- Add more items as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="box" id="box2">
+                <h2>Selected</h2>
+                <div class="items-list selected-items" id="selectedItemsList"></div>
+            </div>
+            <button id="btn">submit</button>
+        </div> 
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const items = document.querySelectorAll('#itemsList .item');
+                const selectedItemsList = document.getElementById('selectedItemsList');
+                const box2 = document.getElementById('box2');
+    
+                items.forEach(item => {
+                    item.addEventListener('dragstart', function (event) {
+                        event.dataTransfer.setData('text/plain', event.target.innerText.trim());
+                    });
+                });
+    
+                items.forEach(item => {
+                    const selectButton = item.querySelector('.select-button');
+                    selectButton.addEventListener('click', function () {
+                        console.log("select clicked");
+                        const selectedItemText = item.innerText.trim();
+                        const selectedDiv = document.createElement('div');
+                        selectedDiv.classList.add('selected-item');
+                        selectedDiv.innerHTML = `<span>${selectedItemText}</span>`;
+                        
+                        const deleteButton = document.createElement('button');
+                        deleteButton.innerText = 'Delete';
+                        deleteButton.classList.add('delete-button');
+                        deleteButton.addEventListener('click', function () {
+                            selectedDiv.remove();
+                        });
+    
+                        selectedDiv.appendChild(deleteButton);
+                        selectedItemsList.appendChild(selectedDiv);
+                        // console.log(`height is : ${selectedItemsList.clientHeight}`);
+                        // console.log(selectedItemsList);
+                    });
+                });
+    
+                box2.addEventListener('dragover', function (event) {
+                    event.preventDefault();
+                });
+    
+                box2.addEventListener('drop', function (event) {
+                    event.preventDefault();
+                    const selectedItemText = event.dataTransfer.getData('text/plain');
+    
+                    const selectedDiv = document.createElement('div');
+                    selectedDiv.classList.add('selected-item');
+                    selectedDiv.innerHTML = `<span>${selectedItemText}</span>`;
+    
+                    const deleteButton = document.createElement('button');
+                    deleteButton.innerText = 'Delete';
+                    deleteButton.classList.add('delete-button');
+                    deleteButton.addEventListener('click', function () {
+                        selectedDiv.remove();
+                    });
+    
+                    selectedDiv.appendChild(deleteButton);
+                    selectedItemsList.appendChild(selectedDiv);
+                    console.log("selected div")
+                });
+            });
+    
+            let bigItem = document.querySelectorAll("#box1 .big-item");
+            let plusSpan = document.querySelectorAll(".big-item .category h3");
+            let contentDiv = document.querySelectorAll(".big-item .content");
+            for(let i =0; i<plusSpan.length;i++){
+                plusSpan[i].addEventListener("click", ()=>{
+                    console.log("toggled")
+                    bigItem[i].classList.toggle("active");
+                    contentDiv[i].classList.toggle("active");
+                })
+            }
+        </script>
+    </div>
+<!-- start footer-->
+<div class="footer">
+    <div class="logo">
+        <span class="logo-container">
+            <span class="logo-txt">Quick Mover</span>
+            <img class="logo-img" src="./Group 7.svg" alt="logo image">
+        </span>
+        <div class="description">
+            <p>
+                where innovation meets service excellence. As industry intermediaries, we take pride in connecting clients to a carefully curated network of top-tier service providers in cleaning, moving, painting, and GIS services. Our mission is to simplify your experience by providing a single point of contact for a diverse range of needs. Backed by a commitment to quality and customer satisfaction, we redefine convenience and elevate expectations.
+            </p>
+        </div>
+    </div>
+    <div class="links">
+        <div class="box services">
+            <a href="services.html">Services</a>
+            <ul>
+                <li><a href="moving.html">Moving</a></li>
+                <li><a href="cleaning.html">Cleaning</a></li>
+                <li><a href="moving and cleaning.html">Moving & Cleaning</a></li>
+                <li><a href="Gisper.html">Gisper</a></li>
+                <li><a href="painting.html">Painting</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="form">
+        <form action="">
+            <div class="inputs" id="inputs">
+                <div class="input">
+                    <h4>name</h4>
+                    <input type="text" placeholder="enter name" name="name">
+                </div>
+                <div class="input">
+                    <h4>email</h4>
+                    <input type="email" name="email" id="email" placeholder="enter email">
+                </div>
+                <div class="input">
+                    <h4>subject</h4>
+                    <input type="text" name="subject" id="subject">
+                </div>
+                <div class="input">
+                    <h4>Messege</h4>
+                    <textarea name="messege" id="messege" placeholder="enter messege"></textarea>
+                </div>
+            </div>
+            <div class="submit">
+                <input type="submit" value="submit" class="submit-btn">
+            </div>
+        </form>
+        <ul class="footer-links">
+            <li><a href="#">contact</a></li>
+            <li><a href="#">become a partner</a></li>
+            <li><a href="#">register</a></li>
+            <li><a href="#">disclaimer</a></li>
+        </ul>
+    </div>
+</div>
+    <!-- end footer-->
+<!-- start development by section-->
+    <!-- <div class="dev-by">
+        <span>Development by <span>Mohammed Elshenawy</span></span>
+        <a href="tel:+201558087877">Call now</a>
+    </div> -->
+    <!-- end development by section-->
+    <div class="rights">
+        &copy; 2023, Lightsoft, All rights reserved
+    </div>
+    <script src="./main.js"></script>
+    <script src="./moving.js"></script>
+</body>
+</html>

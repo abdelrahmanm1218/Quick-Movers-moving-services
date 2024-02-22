@@ -1,0 +1,6 @@
+.contain {
+    display: flex;
+}
+.contain.hidden {
+    display: none;
+}

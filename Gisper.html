@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Mover | Gesper Request</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- font awsome library-->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- main css file-->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/request.css">
+    <link rel="stylesheet" href="./css/servicesForms.css">
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--scoller-->
+    <div class="scroller"></div>
+    <!-- start header-->
+    <div class="header">
+        <div class="first-head-row">
+            <span class="logo-container">
+                <span class="logo-txt">Quick Mover</span>
+                <img class="logo-img" src="./Group 7.svg" alt="logo image">
+            </span>
+            <ul class="links" id="links">
+                <li class=""><a href="#">
+                    <i class="fa-solid fa-circle-info" style="color: #ff6347;"></i>
+                    Customers
+                </a>
+                </li>
+                <li class=""><a href="#">
+                    <i class="fa-solid fa-circle-info" style="color: #ff6347;"></i>
+                    Partners
+                </a>
+                </li>
+                <li class=""><a href="#">Support</a></li>
+                <li class=""><a href="#">Contact</a></li>
+                
+                <li> <a href="#" class="btn desktop" id="partner">Become a partner</a></li>
+                <li> <a href="login.html" class=" desktop">Login</a></li>    
+            </ul>
+            <span class="burger-icon" id="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>   
+        </div>
+        <div class="second-head-row">
+            <!-- <p>hedoud</p> -->
+            <ul class="links" id="links">
+                <li class=""><a href="moving.html">Moving</a></li>
+                <li class=""><a href="cleaning.html">Cleaning</a></li>
+                <li class=""><a href="moving and cleaning.html">Moving & Cleaning</a></li>
+                <li class=""><a href="Gisper.html">Gisper</a></li>
+                <li class=""><a href="painting.html">Painting</a></li>    
+            </ul>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="sidebar" id="sidebar">
+            <span class="close" id="close">
+                <i class="fa-solid fa-xmark" style="color: #debe3e;"></i>
+            </span>
+            <a href="login.html" class="login-side-btn">login</a>
+            <ul class="links">
+                <li class="first"><a href="about.html">About us</a></li>
+                <li>
+                    <a href="services.html">Services</a>
+                    <ul>
+                        <li><a href="moving.html">Moving</a></li>
+                        <li><a href="cleaning.html">Cleaning</a></li>
+                        <li><a href="moving and cleaning.html">Moving & Cleaning</a></li>
+                        <li><a href="Gisper.html">Gisper</a></li>
+                        <li><a href="painting.html">Painting</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="Help">Help</a>
+                    <ul>
+                        <li> <a href="#">FAQ</a></li>
+                        <li> <a href="#">Become a Parnter</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="request.html" class="report">Book a Service</a>
+            
+        </div>
+    </div>
+    <!-- end header-->
+    <!--start Landing-->
+    <div class="landing">
+        <div class="overlay"></div>
+        <div class="landing-text">
+            <h2 class="main-header">Request a Gisper</h2>
+            <p>Gisper: Crafting Excellence in Gypsum Solutions</p>
+        </div>
+    </div>
+    <!--end Landing-->
+    <div class="form-section">
+        <h3>fill out the form</h3>
+        <div class="pagination" id="pagination">
+            <div >
+                <div id="contact" class="active">1</div>
+                <p>Contact</p>
+            </div>
+            <div>
+                <div id="details">2</div>
+                <p>Gisper details</p>
+            </div>
+            <span class="progress">
+                <span class="progress-activity" id="progress"></span>
+            </span>
+        </div>
+        <div class="container multiform-first" id="multiform-first">
+            <div class="form">
+                <form action="" class="first-form " id="first-form">
+                    <div class="form-row">
+                        <h4>Salute</h4>
+                        <div class="input">
+                            <select class="filled">
+                                <option value="Mr">Mr.</option>
+                                <option value="Miss">Miss</option>
+                                <option value="Mrs">Mrs</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Name</h4>
+                        <div class="input">
+                            <input type="text" class="filled"  placeholder="Enter Name" id="name">
+                        <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h4>Your Email</h4>
+                        <div class="input">
+                            <input type="email"  placeholder="johndoe@outlook.com" id="email">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Phone</h4>
+                        <div class="input">
+                            <input type="email"  placeholder="+20010010101" id="phone">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-row submit-and-back">
+                        <span class="back disabled">
+                            <i class="fa-solid fa-arrow-left " id="first-back"></i>
+                        </span>
+                        <input class="submit" id="submit-first" type="submit" value="continue">
+                    </div>
+                </form>
+                <form action="" class="second-form hidden" id="second-form">
+                    <div class="form-row">
+                        <h4>Working date</h4>
+                        <div class="input">
+                            <input type="date"    id="date" class="">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">internal</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">external</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <h4>Street</h4>
+                        <div class="input">
+                            <input type="text"  placeholder="john doe st." id="street">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Order Nr</h4>
+                        <div class="input">
+                            <input type="text"  placeholder="" id="street">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>City</h4>
+                        <div class="input">
+                            <input type="text"  placeholder="Zurich" id="city">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>PostBox</h4>
+                        <div class="input">
+                            <input type="text"  placeholder="" id="postbox">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Area</h4>
+                        <div class="input">
+                            <input type="number"  placeholder="100" id="area">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Notes</h4>
+                        <div class="input">
+                            <textarea name="notes" id="notes" maxlength="300"  placeholder="Enter Additional information, max length is 300 words"></textarea>
+                        <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Object</h4>
+                        <div class="input">
+                            <select class="filled">
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="ipsum">ipsum</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>order type</h4>
+                        <div class="input">
+                            <select class="filled">
+                                <option value="moving">Moving</option>
+                                <option value="lorem">lorem</option>
+                                <option value="ipsum">ipsum</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check active" style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Floor</h4>
+                        <div class="input">
+                            <input type="number"  placeholder="2" id="floor">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-row">
+                        <h4>room</h4>
+                        <div class="input">
+                            <input type="number"  placeholder="201" id="room">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <h4>Preis</h4>
+                        <div class="input">
+                            <input type="number"  placeholder="0.00" id="preis">
+                        <i class="fa-solid fa-circle-check " style="color: #5edc95;"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row submit-and-back">
+                        <span class="back">
+                            <i class="fa-solid fa-arrow-left " id="second-back"></i>
+                        </span>
+                        <input class="submit" id="submit-second" type="submit" value="continue">
+                    </div>
+                </form>
+                    <!-- <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">internal</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">external</span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="checkbox-input">
+                            <span class="switch">
+                            <span class="slider"></span>
+                            </span>
+                            <span style="margin-left: 8px;">external</span>
+                        </label>
+                    </div> -->
+                    
+            <!--end form-->
+            </div>
+        </div>
+    </div>
+<!-- start footer-->
+<div class="footer">
+    <div class="logo">
+        <span class="logo-container">
+            <span class="logo-txt">Quick Mover</span>
+            <img class="logo-img" src="./Group 7.svg" alt="logo image">
+        </span>
+        <div class="description">
+            <p>
+                where innovation meets service excellence. As industry intermediaries, we take pride in connecting clients to a carefully curated network of top-tier service providers in cleaning, moving, painting, and GIS services. Our mission is to simplify your experience by providing a single point of contact for a diverse range of needs. Backed by a commitment to quality and customer satisfaction, we redefine convenience and elevate expectations.
+            </p>
+        </div>
+    </div>
+    <div class="links">
+        <div class="box services">
+            <a href="services.html">Services</a>
+            <ul>
+                <li><a href="moving.html">Moving</a></li>
+                <li><a href="cleaning.html">Cleaning</a></li>
+                <li><a href="moving and cleaning.html">Moving & Cleaning</a></li>
+                <li><a href="Gisper.html">Gisper</a></li>
+                <li><a href="painting.html">Painting</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="form">
+        <form action="">
+            <div class="inputs" id="inputs">
+                <div class="input">
+                    <h4>name</h4>
+                    <input type="text" placeholder="enter name" name="name">
+                </div>
+                <div class="input">
+                    <h4>email</h4>
+                    <input type="email" name="email" id="email" placeholder="enter email">
+                </div>
+                <div class="input">
+                    <h4>subject</h4>
+                    <input type="text" name="subject" id="subject">
+                </div>
+                <div class="input">
+                    <h4>Messege</h4>
+                    <textarea name="messege" id="messege" placeholder="enter messege"></textarea>
+                </div>
+            </div>
+            <div class="submit">
+                <input type="submit" value="submit" class="submit-btn">
+            </div>
+        </form>
+        <ul class="footer-links">
+            <li><a href="#">contact</a></li>
+            <li><a href="#">become a partner</a></li>
+            <li><a href="#">register</a></li>
+            <li><a href="#">disclaimer</a></li>
+        </ul>
+    </div>
+</div>
+    <!-- end footer-->
+<!-- start development by section-->
+    <!-- <div class="dev-by">
+        <span>Development by <span>Mohammed Elshenawy</span></span>
+        <a href="tel:+201558087877">Call now</a>
+    </div> -->
+    <!-- end development by section-->
+    <div class="rights">
+        &copy; 2023, Lightsoft, All rights reserved
+    </div>
+    <script src="./main.js"></script>
+    <script src="./Gisper.js"></script>
+</body>
+</html>

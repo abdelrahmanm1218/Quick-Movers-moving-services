@@ -1,0 +1,148 @@
+/*start variables*/
+:root {
+    --primary-yellow:#DEBE3E;
+    --primary-black: #01020F;
+    --primary-white: #F5F5F5;
+    --primary-green:#5EDC95;
+    --primary-red: #D83838;
+    /*----------------*/
+    --secondary-yellow: #BD9E22;
+    --secondary-dark-yellow: #6E602A;
+    --secondary-black: #171220;
+    --secondary-black-2: #171820;
+    --secondary--grey: #3A3B4A;
+
+}
+/*end variables*/
+.container .first-form .form-row select {
+    /* flex:2; */
+    width:64%;
+    height:50px;
+    border-radius: 4px;;
+    background-color: var(--secondary-black-2);
+    caret-color: var(--primary-yellow);
+    color: var(--primary-white);
+    padding:3px;
+    border: none;
+    margin-right: 15px;
+    box-sizing: border-box;
+    /* width: 335px; */
+}
+.form-section .multiform-first .first-form .form-row select.filled{
+    border-right: 4px solid var(--primary-green);
+    margin-right: 15px;
+}
+.form-section .multiform-first .first-form .form-row select:focus
+{
+    border: 3px solid var(--primary-yellow);
+    outline: none;
+}
+.form-section .multiform-first .first-form .form-row input[type="date"] {
+    margin-right: 15px;
+}
+.container .first-form .form-row textarea {
+    flex:2;
+    padding: 20px;
+    /* height:50px; */
+    border-radius: 4px;;
+    background-color: var(--secondary-black-2);
+    caret-color: var(--primary-yellow);
+    color: var(--primary-white);
+    margin-right: 15px;
+    resize: none;
+    border: none;
+}
+.container .first-form .form-row textarea:focus {
+    border: 2px solid var(--primary-yellow);
+    outline: none;
+}
+.container .first-form .form-row textarea::placeholder {
+    font-size: 14px;
+}
+@media(max-width:767px){
+    .container .first-form .form-row select{
+            width:100%;
+            margin-right: 0;
+    }
+    .form-section .multiform-first .first-form .form-row select.filled{
+    margin-right: 0;
+    }
+    .container .first-form .form-row textarea {
+        width: 100%;
+        margin-right: 0;
+    }
+
+
+}
+
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Style for the checkbox input */
+  .checkbox-input {
+    display: none; /* Hide the default checkbox */
+  }
+
+  /* Style for the switch icon */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px; /* Adjust the width */
+    height: 20px; /* Adjust the height */
+  }
+
+  /* Style for the switch slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 20px; /* Adjust the border-radius */
+    transition: .4s;
+  }
+
+  /* Style for the switch slider when checked */
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px; /* Adjust the height */
+    width: 16px; /* Adjust the width */
+    left: 2px; /* Adjust the left position */
+    bottom: 2px; /* Adjust the bottom position */
+    background-color: white;
+    border-radius: 50%;
+    transition: all .5s ease;
+  }
+
+  /* Style for the checkbox when checked */
+  .checkbox-input:checked + .switch .slider {
+    background-color: var(--primary-yellow);
+  }
+
+  /* Style for the slider when checkbox is checked */
+  .checkbox-input:checked + .switch .slider:before {
+    transform: translateX(20px); /* Adjust the translation */
+    background-color:var(--primary-black)
+  }
+
+@media(max-width:767px){
+    .container .first-form .form-row:nth-of-type(24),
+    .container .first-form .form-row:nth-of-type(25),
+    .container .first-form .form-row:nth-of-type(26),
+    .container .first-form .form-row:nth-of-type(27),
+    .container .first-form .form-row:nth-of-type(28),
+    .container .first-form .form-row:nth-of-type(29),
+    .container .first-form .form-row:nth-of-type(30),
+    .container .first-form .form-row:nth-of-type(31),
+    .container .first-form .form-row:nth-of-type(32),
+    .container .first-form .form-row:nth-of-type(33),
+    .container .first-form .form-row:nth-of-type(34){
+        align-items: flex-start;
+    }
+}

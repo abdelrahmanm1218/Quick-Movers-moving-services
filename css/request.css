@@ -1,0 +1,856 @@
+/*start variables*/
+:root {
+    --primary-yellow:#DEBE3E;
+    --primary-black: #01020F;
+    --primary-white: #F5F5F5;
+    --primary-green:#5EDC95;
+    --primary-red: #D83838;
+    /*----------------*/
+    --secondary-yellow: #BD9E22;
+    --secondary-dark-yellow: #6E602A;
+    --secondary-black: #171220;
+    --secondary-black-2: #171820;
+    --secondary--grey: #3A3B4A;
+
+}
+/*end variables*/
+/*start landing*/
+.landing {
+    height: 40vh;
+}
+@media (max-width:767px){
+    .landing {
+        height:35vh;
+    }
+}
+/*end landing*/
+/*start for section*/
+.form-section {
+    background-color: var(--primary-yellow);
+    padding: 40px;
+    display:block;
+}
+.form-section.hidden {
+    display:none !important;
+}
+.form-section h3 {
+    margin:0;
+    font-size: 16px;
+    margin-left: 100px;;
+    text-transform: uppercase;
+}
+.form-section .container {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    gap:20px;
+    border-radius: 8px;;
+    padding:20px;
+    margin-top: 30px;
+}
+.form-section .container form {
+    flex: 2;
+}
+.form-section .container form .input {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding:10px 40px;
+    margin:10px 0;
+}
+.form-section .container form.first-form .form-row .input,
+.form-section .container form.second-form .form-row .input,
+.form-section .container form.third-form .form-row .input,
+.form-section .container form.fourth-form .form-row .input,
+.form-section .container form.fifth-form .form-row .input {
+    padding:0 !important;
+    margin: 0 !important;
+    width:100% !important;
+}
+.form-section .container form .input h4 {
+    flex: 1;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: 500;
+
+}
+.form-section .container form .input select,
+.form-section .container form .input input {
+    flex:1;
+    padding:10px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    background-color: var(--secondary-black-2);
+    caret-color: var(--primary-yellow);
+    color: var(--primary-white);
+    font-size: 16px;
+
+}
+.form-section .container form .input select.notvalid,
+.form-section .container form .input input.notvalid {
+    border: solid 1px var(--primary-red);
+}
+.form-section .container form .input select.selected,
+.form-section .container form .input input.selected {
+    border: solid 1px var(--primary-yellow);
+}
+.form-section .container form .submit {
+    background-color: var(--primary-yellow);
+    color: var(--primary-black);
+    border:none;
+    display:inline-block;
+    width:fit-content;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 15px;
+    border-radius: 4px;
+    margin:5px auto 15px;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.form-section .container form .submit:hover {
+    background-color: var(--secondary-yellow);
+}
+
+/* .form-section .container .faq-link {
+    flex: 1;
+}
+.form-section .container .faq-link h5 {
+    font-size: 14px;
+    margin:0;
+}
+.form-section .container .faq-link a {
+    font-size:12px;
+    color: var(--primary-white);
+    text-decoration: underline;
+    transition: all 0.3s ease;
+}
+.form-section .container .faq-link a:hover {
+    color:var(--primary-yellow);
+} */
+@media(max-width:991px){
+    .form-section .container form .input {
+        flex-direction: column;
+    }
+    .form-section .container form .input h4{
+        width:100%;
+    }
+    .form-section .container form .input select,
+    .form-section .container form .input input {
+        width:100%;
+    }
+}
+@media (max-width:767px){
+    .form-section h3 {
+        margin:0 auto;
+    }
+    .form-section .container {
+        flex-direction: column;
+    }
+    .form-section .container form {
+        width:100%;
+    }
+    .form-section .container .faq-link {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-section .container .faq-link h5 {
+        font-size: 12px;
+    }
+    .form-section .container .faq-link a {
+        font-size: 10px;
+    }
+}
+.container form.active {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*end first form section*/
+/*start first form in multiform*/
+.form-section .pagination {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 30px;
+    position: relative;
+    width: fit-content;
+    padding: 8px 12px;
+    left:50%;
+    transform: translateX(-50%);
+}
+.form-section .pagination > div {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 40px;
+    border-right: 10px solid var(--primary-yellow);
+    border-left: 10px solid var(--primary-yellow);
+    background-color: var(--primary-yellow);
+}
+.form-section .pagination div div {
+    background-color:#6E602A ;
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-yellow);
+    font-size: 25px;
+    font-weight: bold;
+    margin:0 auto;
+    transition: all 0.3s ease;
+    /* transition-delay: s; */
+}
+.form-section .pagination div div.active {
+    background-color: var(--primary-black);
+}
+.form-section .pagination div p {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+}
+@media (max-width:767px){
+    .form-section .pagination div p  {
+        font-size: 10px;
+    }
+}
+.form-section .pagination .progress{
+    background-color: #6E602A;
+    width: 80%;
+    height: 5px;
+    position: absolute;
+    top: 37px;
+    left: 48%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+.form-section .pagination  .progress .progress-activity {
+    background-color: var(--primary-black);
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    transition: all 0.5s ease;
+}
+.form-section .pagination  .progress .progress-activity.second {
+    width:30%;
+}
+.form-section .pagination  .progress .progress-activity.third {
+    width:50%;
+}
+.form-section .pagination  .progress .progress-activity.fourth {
+    width:80%;
+} 
+.form-section .pagination  .progress .progress-activity.fifth {
+    width:90%;
+} 
+/*end first form*/
+
+/*start first form in multifrom*/
+.form-section .multiform-first {
+    display:flex;
+    justify-content: space-around;
+}
+.form-section .multiform-first .form {
+    flex: 2;
+    padding:20px;
+    width:100%
+}
+/*start moving from modifiedd*/
+.form-section .multiform-first .second-form,
+.form-section .multiform-first .third-form,
+.form-section .multiform-first .fourth-form,
+.form-section .multiform-first .fifth-form {
+    display:grid ;
+    grid-template-columns: repeat(3, minmax(300px,1fr)) ;
+    gap: 20px ;
+
+}
+
+/*end moving from modifiedd*/   
+.form-section .multiform-first .first-form{
+    /* background-color: red; */
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-section .multiform-first .first-form .form-row,
+.form-section .multiform-first .second-form .form-row,
+.form-section .multiform-first .third-form .form-row ,
+.form-section .multiform-first .fourth-form .form-row,
+.form-section .multiform-first .fifth-form .form-row {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    /* background-color: blue; */
+}
+.form-section .multiform-first .first-form .form-row:not(.submit-and-back) h4,
+.form-section .multiform-first .second-form .form-row:not(.submit-and-back) h4,
+.form-section .multiform-first .third-form .form-row:not(.submit-and-back) h4 ,
+.form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) h4,
+.form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) h4 {
+    flex:1;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 14px;;
+    color: var(--primary-white);
+    border: none;
+}
+.form-section .multiform-first .first-form .form-row:not(.submit-and-back) input,
+.form-section .multiform-first .second-form .form-row:not(.submit-and-back) input,
+.form-section .multiform-first .third-form .form-row:not(.submit-and-back) input, 
+.form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) input,
+.form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) input  {
+    flex:2;
+    padding: 20px;
+    height:50px;
+    border-radius: 4px;;
+    background-color: var(--secondary-black-2);
+    caret-color: var(--primary-yellow);
+    color: var(--primary-white);
+    margin-right: 15px;
+    border: none;
+}
+.form-section .multiform-first .first-form .form-row:not(.submit-and-back) input::placeholder,
+.form-section .multiform-first .second-form .form-row:not(.submit-and-back) input::placeholder,
+.form-section .multiform-first .third-form .form-row:not(.submit-and-back) input::placeholder, 
+.form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) input::placeholder,
+.form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) input::placeholder {
+    font-size: 14px;
+}
+.form-section .multiform-first .first-form .form-row:not(.submit-and-back) input.notvalid,
+.form-section .multiform-first .second-form .form-row:not(.submit-and-back) input.notvalid,
+.form-section .multiform-first .third-form .form-row:not(.submit-and-back) input.notvalid,
+.form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) input.notvalid,
+.form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) input.notvalid {
+    border: 2px solid var(--primary-red);
+
+}
+.form-section .multiform-first .first-form .form-row:not(.submit-and-back) input.filled,
+.form-section .multiform-first .second-form .form-row:not(.submit-and-back) input.filled,
+.form-section .multiform-first .third-form .form-row:not(.submit-and-back) input.filled,
+.form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) input.filled,
+.form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) input.filled {
+    border-right: 5px solid var(--primary-green);
+}
+.form-section .multiform-first .first-form .form-row:not(.submit-and-back) input:focus,
+.form-section .multiform-first .second-form .form-row:not(.submit-and-back) input:focus,
+.form-section .multiform-first .third-form .form-row:not(.submit-and-back) input:focus,
+.form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) input:focus,
+.form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) input:focus  {
+    outline: none;
+    border: 2px solid var(--primary-yellow);
+}
+.form-section .multiform-first .first-form .form-row:not(.submit-and-back) i,
+.form-section .multiform-first .second-form .form-row:not(.submit-and-back) i,
+.form-section .multiform-first .third-form .form-row:not(.submit-and-back) i,
+.form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) i,
+.form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) i  {
+    visibility: hidden;
+    font-size: 25px;
+}
+.form-section .multiform-first .first-form .form-row:not(.submit-and-back) i.active,
+.form-section .multiform-first .second-form .form-row:not(.submit-and-back) i.active,
+.form-section .multiform-first .third-form .form-row:not(.submit-and-back) i.active,
+.form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) i.active,
+.form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) i.active {
+    display: inline-block;  
+    visibility: visible; 
+}
+/*start submit and back*/
+.form-section .multiform-first .first-form .form-row.submit-and-back,
+.form-section .multiform-first .second-form .form-row.submit-and-back,
+.form-section .multiform-first .third-form .form-row.submit-and-back,
+.form-section .multiform-first .fourth-form .form-row.submit-and-back,
+.form-section .multiform-first .fifth-form .form-row.submit-and-back {
+    justify-content: space-around;
+}
+.form-section .multiform-first .first-form .form-row.submit-and-back span,
+.form-section .multiform-first .second-form .form-row.submit-and-back span,
+.form-section .multiform-first .third-form .form-row.submit-and-back span,
+.form-section .multiform-first .fourth-form .form-row.submit-and-back span,
+.form-section .multiform-first .fifth-form .form-row.submit-and-back span {
+    width:50px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-yellow);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.form-section .multiform-first .first-form .form-row.submit-and-back span:hover,
+.form-section .multiform-first .first-form .form-row.submit-and-back .submit:hover,
+.form-section .multiform-first .second-form .form-row.submit-and-back span:hover,
+.form-section .multiform-first .second-form .form-row.submit-and-back .submit:hover,
+.form-section .multiform-first .third-form .form-row.submit-and-back span:hover,
+.form-section .multiform-first .third-form .form-row.submit-and-back .submit:hover,
+.form-section .multiform-first .fourth-form .form-row.submit-and-back span:hover,
+.form-section .multiform-first .fourth-form .form-row.submit-and-back .submit:hover,
+.form-section .multiform-first .fifth-form .form-row.submit-and-back span:hover,
+.form-section .multiform-first .fifth-form .form-row.submit-and-back .submit:hover
+{
+    background-color: var(--secondary-yellow);
+}
+.form-section .multiform-first .first-form .form-row.submit-and-back span.disabled,
+.form-section .multiform-first .first-form .form-row.submit-and-back .submit.disabled,
+.form-section .multiform-first .second-form .form-row.submit-and-back span.disabled,
+.form-section .multiform-first .second-form .form-row.submit-and-back .submit.disabled,
+.form-section .multiform-first .third-form .form-row.submit-and-back span.disabled,
+.form-section .multiform-first .third-form .form-row.submit-and-back .submit.disabled {
+    background-color: var(--secondary-dark-yellow);
+    cursor: not-allowed;
+}
+.form-section .multiform-first .first-form .form-row.submit-and-back span i,
+.form-section .multiform-first .second-form .form-row.submit-and-back span i,
+.form-section .multiform-first .third-form .form-row.submit-and-back span i,
+.form-section .multiform-first .fourth-form .form-row.submit-and-back span i,
+.form-section .multiform-first .fifth-form .form-row.submit-and-back span i {
+    color: var(--primary-black);
+    font-size: 20px;;
+}
+.form-section .multiform-first .first-form .form-row.submit-and-back .submit,
+.form-section .multiform-first .second-form .form-row.submit-and-back .submit,
+.form-section .multiform-first .third-form .form-row.submit-and-back .submit,
+.form-section .multiform-first .fourth-form .form-row.submit-and-back .submit,
+.form-section .multiform-first .fifth-form .form-row.submit-and-back .submit {
+    width:fit-content;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-yellow);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--primary-black);
+    margin:0;
+    transform: translateX(0);
+    position: initial;
+    font-size: 14px;
+}
+/*end submit and back*/
+/*start faq*/
+.form-section .multiform-first .faq {
+    flex:1
+}
+/*end faq*/
+@media(max-width:767px){
+    .form-section {
+        padding:30px;
+    }
+    .form-section .container {
+        margin-top: initial;
+    }
+    .form-section .pagination {
+        width:100%;
+    }
+    .form-section .pagination > div {
+        margin-right: 15px;
+        border-left: 4px solid var(--primary-yellow);
+        border-right: 4px solid var(--primary-yellow);
+    }
+    .form-section .pagination div div {
+        width: 50px;
+        height:50px;
+        font-size: 20px;
+    }
+    .form-section .multiform-first .first-form,
+    .form-section .multiform-first .second-form,
+    .form-section .multiform-first .third-form,
+    .form-section .multiform-first .fourth-form,
+    .form-section .multiform-first .fifth-form {
+        gap:8px;
+    }
+    .form-section .multiform-first .form {
+        width:100%;
+        padding:0
+    }
+    .form-section .multiform-first .first-form .form-row,
+    .form-section .multiform-first .second-form .form-row,
+    .form-section .multiform-first .third-form .form-row,
+    .form-section .multiform-first .fourth-form .form-row,
+    .form-section .multiform-first .fifth-form .form-row {
+        flex-direction: column;
+    }
+    .form-section .multiform-first .first-form .form-row:not(.submit-and-back) h4,
+    .form-section .multiform-first .second-form .form-row:not(.submit-and-back) h4,
+    .form-section .multiform-first .third-form .form-row:not(.submit-and-back) h4,
+    .form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) h4,
+    .form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) h4 {
+        width:100%;
+        margin: 10px;
+        font-size: 14px;;
+    }
+    .form-section .multiform-first .first-form .form-row:not(.submit-and-back) input,
+    .form-section .multiform-first .second-form .form-row:not(.submit-and-back) input,
+    .form-section .multiform-first .third-form .form-row:not(.submit-and-back) input,
+    .form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) input,
+    .form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) input {
+        width:100%;
+        height:40px;
+        flex: initial;
+    }
+    .form-section .multiform-first .first-form .form-row:not(.submit-and-back) input.filled,
+    .form-section .multiform-first .second-form .form-row:not(.submit-and-back) input.filled,
+    .form-section .multiform-first .third-form .form-row:not(.submit-and-back) input.filled,
+    .form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) input.filled,
+    .form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) input.filled {
+        border-right: 4px solid var(--primary-green);
+        margin-right: initial;
+    }
+    .form-section .multiform-first .first-form .form-row:not(.submit-and-back) input.notvalid,
+.form-section .multiform-first .second-form .form-row:not(.submit-and-back) input.notvalid,
+.form-section .multiform-first .third-form .form-row:not(.submit-and-back) input.notvalid,
+.form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) input.notvalid,
+.form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) input.notvalid {
+    margin: 0;
+}
+    .form-section .multiform-first .first-form .form-row:not(.submit-and-back) i,
+    .form-section .multiform-first .first-form .form-row:not(.submit-and-back) i.active,
+    .form-section .multiform-first .second-form .form-row:not(.submit-and-back) i,
+    .form-section .multiform-first .second-form .form-row:not(.submit-and-back) i.active,
+    .form-section .multiform-first .third-form .form-row:not(.submit-and-back) i,
+    .form-section .multiform-first .third-form .form-row:not(.submit-and-back) i.active,
+    .form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) i,
+    .form-section .multiform-first .fourth-form .form-row:not(.submit-and-back) i.active,
+    .form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) i,
+    .form-section .multiform-first .fifth-form .form-row:not(.submit-and-back) i.active   {
+        display:none;
+    }
+    .form-section .multiform-first .first-form .form-row.submit-and-back,
+    .form-section .multiform-first .second-form .form-row.submit-and-back,
+    .form-section .multiform-first .third-form .form-row.submit-and-back,
+    .form-section .multiform-first .fourth-form .form-row.submit-and-back,
+    .form-section .multiform-first .fifth-form .form-row.submit-and-back {
+        flex-direction: row;
+        margin-top: 10px;
+    }
+    .form-section .multiform-first .first-form .form-row.submit-and-back span,
+    .form-section .multiform-first .second-form .form-row.submit-and-back span,
+    .form-section .multiform-first .third-form .form-row.submit-and-back span,
+    .form-section .multiform-first .fourth-form .form-row.submit-and-back span,
+    .form-section .multiform-first .fifth-form .form-row.submit-and-back span {
+        width:40px;
+        height:40px;
+    }
+    .form-section .multiform-first .first-form .form-row.submit-and-back .submit,
+    .form-section .multiform-first .second-form .form-row.submit-and-back .submit,
+    .form-section .multiform-first .third-form .form-row.submit-and-back .submit,
+    .form-section .multiform-first .fourth-form .form-row.submit-and-back .submit,
+    .form-section .multiform-first .fifth-form .form-row.submit-and-back .submit {
+        height:40px;
+    }
+}
+/*end first form in multifrom*/
+
+/*start second form in multiform*/
+
+.container .second-form .form-row select,
+.container .third-form .form-row select,
+.container .fourth-form .form-row select,
+.container .fifth-form .form-row select {
+    flex:2;
+    width:50%;
+    height:50px;
+    border-radius: 4px;;
+    background-color: var(--secondary-black-2);
+    caret-color: var(--primary-yellow);
+    color: var(--primary-white);
+    padding:3px;
+    border: none;
+    margin-right: 15px;
+}
+.form-section .multiform-first .second-form .form-row select.filled,
+.form-section .multiform-first .third-form .form-row select.filled,
+.form-section .multiform-first .fourth-form .form-row select.filled,
+.form-section .multiform-first .fifth-form .form-row select.filled {
+    border-right: 4px solid var(--primary-green);
+    margin-right: 15px;
+}
+.form-section .multiform-first .second-form .form-row select:focus,
+.form-section .multiform-first .third-form .form-row select:focus,
+.form-section .multiform-first .fourth-form .form-row select:focus,
+.form-section .multiform-first .fifth-form .form-row select:focus  {
+    border: 3px solid var(--primary-yellow);
+    outline: none;
+}
+.form-section .multiform-first .second-form .form-row input[type="date"],
+.form-section .multiform-first .fifth-form .form-row input[type="date"] {
+    margin-right: 15px;
+    color: white
+}
+
+@media(max-width:767px){
+    .container .second-form .form-row select,
+    .container .third-form .form-row select,
+    .container .fourth-form .form-row select,
+    .container .fifth-form .form-row select {
+        width:100%;
+        margin-right: 0;
+    }
+    .form-section .multiform-first .second-form .form-row select.filled,    
+    .form-section .multiform-first .third-form .form-row select.filled,
+    .form-section .multiform-first .fourth-form .form-row select.filled,
+    .form-section .multiform-first .fifth-form .form-row select.filled {
+    margin-right: 0;
+}
+    .container .fourth-form .form-row textarea {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+/*end second form in multiform*/
+
+/*css for multistep form*/
+#main-form.hidden {
+    display:none;
+}
+.form-section .pagination.hidden {
+    display:none !important;
+}
+.container .form form.hidden {
+    display:none !important;
+}
+#multiform-first.hidden {
+    display:none !important;
+}
+#submit-fourth.disabled {
+    background-color: var(--secondary-dark-yellow);
+    cursor: not-allowed;
+}
+
+/*start completion*/
+.completion {
+    background-color: var(--primary-yellow);
+    padding: 40px;
+    display:block;
+}
+.completion.hidden {
+    display:none;
+}
+.completion .container {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    gap:20px;
+    border-radius: 8px;;
+    padding:20px 30%;
+    margin-top: 30px;
+}
+
+.completion .container h3 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color:var(--primary-yellow);
+    margin: 0;
+}
+.completion .container p {
+    font-size: 14px;
+    text-align: center;
+    margin:0;
+}
+.completion .container a {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 10px 20px;
+    color:var(--primary-black);
+    background-color: var(--primary-yellow);
+    margin:0 auto;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: capitalize;
+    border-radius: 4px;;
+    transition: all 0.5s ease;
+}
+.completion .container a:hover {
+    background-color: var(--secondary-yellow);
+}
+@media (max-width:767px){
+    .completion .container {
+        padding:20px 10%;
+    }
+    .completion .container h3 {
+        font-size: 16px;
+    }
+    .completion .container p {
+        font-size: 13px;
+    }
+    .completion .container a {
+        font-size: 13px;
+    }
+}
+/*end completion*/
+.form-section .multiform-first #first-form .form-row,
+.form-section .multiform-first #second-form .form-row,
+.form-section .multiform-first #third-form .form-row,
+.form-section .multiform-first #fourth-form .form-row,
+.form-section .multiform-first #fifth-form .form-row{
+    flex-direction: column;
+    padding:0 10px;
+    height: 100%;
+    align-items: flex-start;
+}
+.form-section .multiform-first #fourth-form .form-row:not(.submit-and-back){
+    justify-content: initial;
+}
+.form-section .multiform-first #third-form .form-row.switch,
+.form-section .multiform-first #fourth-form .form-row.switch{
+    flex-direction: row;
+}
+.form-section .multiform-first #third-form .form-row:nth-of-type(11){
+    grid-column:3/4;
+}
+.form-section .multiform-first #third-form .form-row:nth-of-type(10){
+    grid-column:1/3;
+}
+
+#first-form .form-row h4,
+#second-form .form-row h4,
+#third-form .form-row h4,
+#fourth-form .form-row h4,
+#fifth-form .form-row h4 {
+    width:100%;
+    margin: 0 ;
+    margin-bottom: 10px;
+    flex:initial
+}
+
+#submit-and-back{
+    flex-direction: row !important;
+    grid-row: 9/10;
+    grid-column:1/4;
+}
+@media(max-width:800px){
+    #submit-and-back {
+        grid-row: 14/15;
+    }
+}
+#fourth-form .form-row:nth-of-type(6){
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+#fourth-form .form-row:nth-of-type(8){
+    grid-row:4/5;
+    grid-column: 1/4;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    padding: 10px 0 !important;
+}
+#fourth-form .form-row.submit-and-back {
+    grid-row: 5/6;
+    grid-column: 1/4;
+    flex-direction: row !important;
+}
+@media (max-width:991px){
+    .form-section .multiform-first .second-form,
+    .form-section .multiform-first .third-form,
+    .form-section .multiform-first .fourth-form {
+        grid-template-columns: repeat(3,minmax(250px,1fr));
+    }
+    .form-section .multiform-first .second-form .form-row .input,
+    .form-section .multiform-first .third-form .form-row .input,
+    .form-section .multiform-first .fourth-form .form-row .input {
+        flex-direction: row;
+    }
+}
+/*start first form inputs*/
+.form-section .multiform-first .first-form {
+    display:grid ;
+    grid-template-columns: repeat(2, minmax(400px,1fr)) !important ;
+    gap: 20px ;
+}
+.form-section .multiform-first .first-form .form-row.switch {
+    grid-row: 3/4;
+    grid-column: 1/3;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 10px 0 !important;
+}
+.form-section .multiform-first .first-form .form-row.submit-and-back {
+    grid-row: 4/5;
+    grid-column: 1/3;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+}
+/*end first form inputs*/
+
+/*start second form inputs*/
+.container .second-form .form-row textarea {
+    flex:2;
+    padding: 20px;
+    border-radius: 4px;;
+    background-color: var(--secondary-black-2);
+    caret-color: var(--primary-yellow);
+    color: var(--primary-white);
+    margin-right: 15px;
+    resize: none;
+    border: none;
+    
+}
+.container .second-form .form-row textarea:focus {
+    border: 2px solid var(--primary-yellow);
+    outline: none;
+}
+.container .second-form .form-row textarea::placeholder {
+    font-size: 14px;
+}
+
+.container .second-form .form-row:nth-of-type(8){
+    grid-row: 4/5;
+    grid-column: 1/3;
+}
+.container .second-form .form-row.switch{
+    grid-row: 4/5;
+    grid-column: 3/4;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.container .second-form .form-row.submit-and-back {
+    grid-row:6/7;
+    grid-column: 1/4;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+}
+/*end second form textare*/
+
+/*start fifth form*/
+#fifth-from .form-row:nth-of-type(5){
+    flex-direction: row;
+}
+.form-section .multiform-first #fifth-form .form-row.switch {
+    justify-content: space-around;
+}
+#fifth-form .form-row.submit-and-back {
+    grid-row: 6/7;
+    flex-direction: row !important;
+    grid-column: 1/4;
+}
+/*end fifth form*/

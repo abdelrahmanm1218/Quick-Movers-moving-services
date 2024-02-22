@@ -1,0 +1,12 @@
+.third-form .form-row.submit-and-back {
+    flex-direction: row !important;
+    grid-column:1/4 !important;
+    grid-row: 10/11;
+}
+
+.contain {
+    display: flex;
+}
+.contain.hidden {
+    display: none;
+}
